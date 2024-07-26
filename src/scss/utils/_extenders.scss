@@ -1,0 +1,15 @@
+%heading {
+  font-family: poppinssemibold, sans-serif;
+  font-size: 36px;
+  color: #344F10;
+  text-transform: uppercase;
+
+  @include for-phone-only {
+    font-size: 24px;
+  }
+}
+
+%nav-menu {
+  font-family: poppinssemibold, sans-serif;
+  font-size: 18px;
+}
