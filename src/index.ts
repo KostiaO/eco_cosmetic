@@ -8,4 +8,4 @@ $('.header-burger-btn').on('click', () => {
 
 $('.burger-btn').on('click', () => {
     $('.burger').removeClass('burger--active');
-})
+});

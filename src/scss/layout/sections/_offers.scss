@@ -1,7 +1,44 @@
 .offers {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: $screen_height * 0.93;
+
+  gap: 20px;
+
+  padding: 70px 130px 200px;
+
+  height: 0.82 * $screen_height;
+
+  &-info {
+    max-width: 480px;
+
+    &-heading {
+      @extend %heading;
+
+      font-size: 60px;
+
+      color: $default_dark;
+
+      text-transform: initial;
+
+      margin-bottom: 30px;
+
+      line-height: 78px;
+    }
+
+    &-description {
+      @extend %paragraph;
+
+      margin-bottom: 50px;
+    }
+
+    &-btn {
+      @extend %heading;
+      @extend %eco-btn;
+    }
+  }
+
+  &-img {
+    width: 580px;
+    height: 451px;
+  }
 }
