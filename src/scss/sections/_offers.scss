@@ -1,0 +1,39 @@
+$default_img_width: 580;
+$default_img_height: 451;
+
+.offers {
+  display: flex;
+  justify-content: center;
+
+  gap: 20px;
+
+  height: 0.82 * $screen_height;
+
+  padding: 70px 130px 200px;
+
+  &-info {
+    max-width: 480px;
+
+    &-heading {
+      @extend %h1;
+
+      color: $default_dark;
+
+      margin-bottom: 30px;
+    }
+
+    &-description {
+      @extend %paragraph;
+
+      margin-bottom: 50px;
+    }
+
+    &-btn {
+      @extend %eco-btn;
+    }
+  }
+
+  &-img {
+    @include rectangle($default_img_width, $default_img_height);
+  }
+}

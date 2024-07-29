@@ -1,8 +1,76 @@
-%heading {
+%text-color {
+  color: $default_green;
+}
+
+%h1 {
+  font-family: poppinssemibold, sans-serif;
+  font-size: 60px;
+  line-height: 72px;
+
+  @extend %text-color;
+}
+
+%h2 {
   font-family: poppinssemibold, sans-serif;
   font-size: 36px;
-  color: #344F10;
+  line-height: 110%;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  @extend %text-color;
+}
+
+%h3 {
+  font-family: poppinssemibold, sans-serif;
+  font-size: 36px;
+  line-height: 150%;
+
+  @extend %text-color;
+}
+
+%h4 {
+  font-family: poppinssemibold, sans-serif;
+  font-size: 24px;
+  line-height: 150%;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  @extend %text-color;
+}
+
+%h5 {
+  font-family: poppinssemibold, sans-serif;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+
+  @extend %text-color;
+}
+
+%text {
+  font-family: poppinsregular, sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+
+  color: $default_dark;
+}
+
+%text2 {
+  font-family: poppinsregular, sans-serif;
+  font-size: 14px;
+  line-height: 130%;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+%small_text {
+  font-family: poppinsregular, sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+%heading {
+  @extend %h2;
 
   @include for-phone-only {
     font-size: 24px;
@@ -10,8 +78,7 @@
 }
 
 %nav-menu {
-  font-family: poppinssemibold, sans-serif;
-  font-size: 18px;
+  @extend %h5;
 
   cursor: pointer;
 
@@ -36,14 +103,23 @@
   }
 }
 
-%eco-btn {
-  background-color: $default_dark;
+%text-btn {
+  @extend %text;
 
-  color: #F2F2F2;
-
+  font-family: poppinssemibold, sans-serif;
+  line-height: 130%;
   text-transform: uppercase;
 
-  font-size: 16px;
+  letter-spacing: 0.15rem;
+
+  color: #F2F2F2;
+}
+
+%eco-btn {
+  @extend %text-btn;
+
+  background-color: $default_dark;
+  text-transform: uppercase;
 
   width: 280px;
   height: 60px;
@@ -60,8 +136,27 @@
 }
 
 %paragraph {
-  font-family: poppinsregular, sans-serif;
-  font-size: 16px;
+  @extend %text;
+
   line-height: 24px;
   color: $default_dark;
+}
+
+%price-text {
+  font-family: poppinsmedium, sans-serif;
+  font-size: 18px;
+  line-height: 130%;
+  text-transform: uppercase;
+}
+
+%inputs-menu-text {
+  font-family: poppinsmedium, sans-serif;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+%decorative-text {
+  font-family: poppinsmedium, sans-serif;
+  font-size: 14px;
+  line-height: 130%;
 }

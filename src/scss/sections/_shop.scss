@@ -1,0 +1,75 @@
+.shop_section {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+
+  padding-top: 200px;
+  padding-left: 200px;
+
+  //& > .back-side {
+  //  left: 130px;
+  //
+  //  &::before {
+  //    left: -110%;
+  //  }
+  //}
+
+  &-heading {
+    @extend %heading;
+
+    margin-bottom: 30px;
+  }
+
+  &-nav {
+    margin-bottom: 50px;
+
+    &-list {
+      display: flex;
+
+      gap: 50px;
+
+      &-item {
+        @extend %h5;
+
+        color: $default_grey;
+        cursor: pointer;
+
+        transition: 0.33s;
+
+        &--is-active, &:hover {
+          color: $default_dark;
+
+          &::after {
+            content: "";
+
+            display: block;
+            height: 2px;
+
+            margin-top: 10px;
+
+            background-color: $default_dark;
+          }
+        }
+      }
+    }
+  }
+
+  &-cards {
+    display: flex;
+
+    //justify-content: center;
+    //align-items: center;
+
+    gap: 20px;
+  }
+
+  &-btn {
+    @extend %eco-btn;
+
+    align-self: center;
+    margin-top: 40px;
+  }
+}
+
+

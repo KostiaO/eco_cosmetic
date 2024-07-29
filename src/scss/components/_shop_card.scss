@@ -1,0 +1,16 @@
+.shop_card {
+  &-title {
+    @extend %h5;
+
+    text-transform: uppercase;
+    color: $default_dark;
+
+    margin-top: 20px;
+  }
+
+  &-price {
+    @extend %price-text;
+
+    margin-top: 13px;
+  }
+}

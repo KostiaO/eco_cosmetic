@@ -1,0 +1,13 @@
+.section-divider {
+  width: 0.45 * 100vw;
+  height: 1px;
+
+  background-color: $default_green;
+  opacity: 0.5;
+
+  position: absolute;
+
+  &--right {
+    right: 0;
+  }
+}

@@ -7,8 +7,20 @@
   @media (min-width: 401px) { @content; }
 }
 
+@mixin for-tablet-mini-min {
+  @media (min-width: 769px) { @content; }
+}
+
+@mixin for-tablet-mini-max {
+  @media (max-width: 768px) { @content; }
+}
+
 @mixin for-tablet-landscape-up {
   @media (min-width: 900px) { @content; }
+}
+
+@mixin for-tablet-landscape-up-max {
+  @media (max-width: 900px) { @content; }
 }
 
 @mixin for-desktop-up {
@@ -21,4 +33,9 @@
 
 @mixin for-big-desktop-up {
   @media (min-width: 1800px) { @content; }
+}
+
+@mixin rectangle($width, $height) {
+  width: #{$width}px;
+  height: #{$height}px;
 }
