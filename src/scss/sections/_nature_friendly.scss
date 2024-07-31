@@ -1,0 +1,19 @@
+.nature_friendly {
+  padding: 200px 130px;
+
+  display: flex;
+  justify-content: space-between;
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    gap: 44px;
+
+    &-text {
+      @extend %text2;
+    }
+  }
+}

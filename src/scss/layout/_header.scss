@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
 
-  padding: 40px 50px;
+  padding: 40px 130px;
 
   &-logo {
     display: flex;
@@ -17,7 +17,7 @@
       font-size: 14px;
       font-family: poppinsregular, sans-serif;
 
-      @include for-tablet-mini-max {
+      @include ipad_only {
         display: none;
       }
     }
@@ -34,10 +34,18 @@
         @extend %nav-menu;
 
         color: $default_green;
+
+        &--footer {
+          color: $background_color;
+
+          &::after {
+            background-color: $background_color;
+          }
+        }
       }
     }
 
-    @include for-tablet-mini-max {
+    @include ipad_only {
       display: none;
     }
   }
@@ -46,18 +54,22 @@
 
     &-btn {
 
-      @include for-tablet-mini-min {
+      @include ipad_more {
         display: none;
       }
     }
   }
 
-  @include for-phone-only {
-    padding: 20px 20px;
+  @include ipad_to-main {
+    padding: 40px 50px;
   }
 
-  @include for-desktop-up-medium {
-    padding: 40px 130px;
+  @include ipad_only {
+    padding: 30px;
+  }
+
+  @include only-iphone {
+    padding: 20px;
   }
 }
 
@@ -122,7 +134,7 @@
     background-color: $default_dark;
   }
 
-  @include for-tablet-mini-min {
+  @include ipad_more {
     display: none;
   }
 }

@@ -72,7 +72,7 @@
 %heading {
   @extend %h2;
 
-  @include for-phone-only {
+  @include only-iphone {
     font-size: 24px;
   }
 }
@@ -146,6 +146,7 @@
   font-family: poppinsmedium, sans-serif;
   font-size: 18px;
   line-height: 130%;
+
   text-transform: uppercase;
 }
 
@@ -159,4 +160,36 @@
   font-family: poppinsmedium, sans-serif;
   font-size: 14px;
   line-height: 130%;
+}
+
+%eco-input {
+  @extend %inputs-menu-text;
+  color: $default_dark;
+  border-bottom: 1px solid #BDBDBD;
+
+  caret-color: $default_grey;
+
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+  &::placeholder {
+    color: $default_grey;
+    text-transform: capitalize;
+  }
+
+  &:focus {
+    border-bottom: 1px solid $default_dark;
+  }
+
+  transition: $default_transition_delay;
+
+  //&::after {
+  //  content: "";
+  //  display: block;
+  //
+  //  width: 200px;
+  //  height: 1px;
+  //  background-color: $default_grey;
+  //}
 }

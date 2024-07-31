@@ -1,41 +1,67 @@
-
-@mixin for-phone-only {
-  @media (max-width: 400px) { @content; }
+@mixin desktop_main_more {
+  @media (min-width: 1440px) {
+    @content;
+  }
 }
 
-@mixin for-tablet-portrait-up {
-  @media (min-width: 401px) { @content; }
+@mixin main_more {
+  @media (min-width: 1280px) {
+    @content;
+  }
 }
 
-@mixin for-tablet-mini-min {
-  @media (min-width: 769px) { @content; }
+@mixin main-to-desktop_main {
+  @media (min-width: 1280px) and (max-width: 1440px){
+    @content;
+  }
 }
 
-@mixin for-tablet-mini-max {
-  @media (max-width: 768px) { @content; }
+@mixin ipad_more {
+  @media (min-width: 769px) {
+    @content;
+  }
 }
 
-@mixin for-tablet-landscape-up {
-  @media (min-width: 900px) { @content; }
+@mixin ipad_only {
+  @media (max-width: 768px) {
+    @content;
+  }
 }
 
-@mixin for-tablet-landscape-up-max {
-  @media (max-width: 900px) { @content; }
+@mixin ipad-to-main {
+  @media (min-width: 768px) and (max-width: 1280px){
+    @content;
+  }
 }
 
-@mixin for-desktop-up {
-  @media (min-width: 1200px) { @content; }
+@mixin iphone-to-ipad {
+  @media (min-width: 320px) and (max-width: 768px){
+    @content;
+  }
 }
 
-@mixin for-desktop-up-medium {
-  @media (min-width: 1440px) { @content; }
+@mixin iphone_more {
+  @media (min-width: 320px) {
+    @content;
+  }
 }
 
-@mixin for-big-desktop-up {
-  @media (min-width: 1800px) { @content; }
+@mixin only-iphone {
+  @media (max-width: 320px) {
+    @content;
+  }
 }
+
 
 @mixin rectangle($width, $height) {
   width: #{$width}px;
   height: #{$height}px;
+}
+
+@mixin hover($prop, $value) {
+  &:hover {
+    #{$prop}: #{$value};
+  }
+
+  transition: #{$prop} $default_transition_delay;
 }

@@ -1,0 +1,44 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 60px 130px;
+
+  background-color: $default_green;
+  opacity: 0.5;
+
+  &-nav_copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 144px;
+
+    &-copyright {
+      @extend %nav-menu;
+
+      color: $background_color;
+    }
+  }
+
+  &-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &-item {
+      @extend %text;
+
+
+      color: $background_color;
+    }
+
+    &-socials {
+      margin-top: 10px;
+
+      display: flex;
+      gap: 20px;
+    }
+  }
+}

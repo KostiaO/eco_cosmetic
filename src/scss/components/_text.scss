@@ -7,14 +7,29 @@
 
   width: max-content;
 
+  cursor: pointer;
+
+  position: relative;
+
   &::after {
     content: "";
+    position: absolute;
     display: block;
 
     background-color: $default_green;
 
     margin-top: 8px;
     height: 1px;
+    width: 100%;
+
+    transform: scale(0, 0);
+
+    transition: transform $default_transition_delay;
+
+  }
+
+  &:hover::after {
+    transform: scale(1, 1);
   }
 }
 

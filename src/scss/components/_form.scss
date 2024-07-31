@@ -1,0 +1,16 @@
+//.form {
+//  display: flex;
+//  flex-direction: column;
+//}
+
+.eco-input {
+  @extend %eco-input;
+}
+
+.is-error {
+  &::placeholder {
+    color: $default_red;
+  }
+
+  border-color: $default_red;
+}

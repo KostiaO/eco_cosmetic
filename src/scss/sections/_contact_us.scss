@@ -1,0 +1,48 @@
+.contact_us {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 120px;
+
+  padding-bottom: 200px;
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+
+    width: 480px;
+
+
+    &-form {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      :nth-last-child(2) {
+        margin-top: 30px;
+      }
+
+      &-input {
+        @extend %eco-input;
+      }
+
+      &-btn {
+        @extend %eco-btn;
+
+        margin-top: 20px;
+      }
+    }
+
+    &-heading {
+      @extend %h2;
+
+      margin-bottom: 30px;
+    }
+
+    &-description {
+      @extend %text;
+
+      margin-bottom: 40px;
+    }
+  }
+}
