@@ -19,6 +19,10 @@
     @extend %heading;
 
     margin-bottom: 30px;
+
+    @include only-iphone {
+      align-self: center;
+    }
   }
 
   &-nav {
@@ -51,17 +55,67 @@
             background-color: $default_dark;
           }
         }
+
+        @include ipad_only {
+          font-size: 14px;
+        }
       }
+
+      @include ipad_only {
+        gap: 16px;
+      }
+
+      @include only-iphone {
+        justify-content: center;
+      }
+    }
+
+    @include only-iphone {
+      padding: 0 20px;
+      margin-bottom: 15px;
     }
   }
 
   &-cards {
     display: flex;
+    flex-wrap: wrap;
 
     //justify-content: center;
     //align-items: center;
 
     gap: 20px;
+
+    .shop_card {
+      &-img {
+        @include ipad_only {
+          width: 342px;
+          height: 300px;
+        }
+
+        @include only-iphone {
+          width: 320px;
+          height: 267px;
+        }
+      }
+
+      &-title, &-price {
+        @include only-iphone {
+          padding: 0 20px;
+        }
+      }
+
+      @include ipad_only {
+        &:nth-child(2n) {
+          display: none;
+        }
+      }
+
+      @include only-iphone {
+        &:nth-child(n + 2) {
+          display: none;
+        }
+      }
+    }
   }
 
   &-btn {
@@ -69,6 +123,14 @@
 
     align-self: center;
     margin-top: 40px;
+  }
+
+  @include ipad_only {
+    padding: 130px 27px 100px;
+  }
+
+  @include only-iphone {
+    padding: 130px 0 100px;
   }
 }
 

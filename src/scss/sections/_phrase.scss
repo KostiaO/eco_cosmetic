@@ -8,11 +8,28 @@
 
   &-text {
     @extend %text;
+
+    @include ipad_only {
+      display: none;
+    }
+
+    max-width: 380px;
   }
 
   &-heading {
     @extend %h4;
 
     text-transform: uppercase;
+
+    max-width: 380px;
+
+    @include ipad_only {
+      font-size: 18px;
+      max-width: 280px;
+    }
+  }
+
+  @include ipad_only {
+    padding: 100px 20px;
   }
 }

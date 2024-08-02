@@ -6,6 +6,17 @@
 
   padding-bottom: 200px;
 
+  &-img {
+    @include ipad_only {
+      width: 368px;
+      height: 409px;
+    }
+
+    @include only-iphone {
+      display: none;
+    }
+  }
+
   &-content {
     display: flex;
     flex-direction: column;
@@ -30,6 +41,10 @@
         @extend %eco-btn;
 
         margin-top: 20px;
+
+        @include only-iphone {
+          align-self: center;
+        }
       }
     }
 
@@ -41,8 +56,27 @@
 
     &-description {
       @extend %text;
+      max-width: 380px;
 
       margin-bottom: 40px;
+
+      @include ipad_only {
+        max-width: 342px;
+      }
+
+      @include only-iphone {
+        max-width: 280px;
+      }
     }
+  }
+
+  @include ipad_only {
+    gap: 30px;
+
+    padding-left: 27px;
+  }
+
+  @include only-iphone {
+    padding: 0 20px 200px;
   }
 }

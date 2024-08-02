@@ -10,4 +10,8 @@
   &--right {
     right: 0;
   }
+
+  @include ipad_only {
+    display: none;
+  }
 }

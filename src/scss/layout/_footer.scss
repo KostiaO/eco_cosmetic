@@ -19,6 +19,12 @@
       @extend %nav-menu;
 
       color: $background_color;
+
+      @include ipad_only {
+        font-family: poppinsregular, sans-serif;
+        font-size: 14px;
+        line-height: 150%;
+      }
     }
   }
 
@@ -32,6 +38,12 @@
 
 
       color: $background_color;
+
+      @include ipad_only {
+        font-family: poppinsregular, sans-serif;
+        font-size: 14px;
+        line-height: 150%;
+      }
     }
 
     &-socials {
@@ -40,5 +52,14 @@
       display: flex;
       gap: 20px;
     }
+  }
+
+  @include ipad_only {
+    padding: 27px;
+  }
+
+  @include only-iphone {
+    flex-direction: column;
+    gap: 40px;
   }
 }

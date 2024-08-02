@@ -25,7 +25,6 @@
     transform: scale(0, 0);
 
     transition: transform $default_transition_delay;
-
   }
 
   &:hover::after {
@@ -57,5 +56,9 @@
     width: 100px;
     height: 1px;
     background-color: $default_green;
+  }
+
+  @include ipad_only {
+    display: none;
   }
 }

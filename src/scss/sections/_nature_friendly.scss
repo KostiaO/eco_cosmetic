@@ -14,6 +14,19 @@
 
     &-text {
       @extend %text2;
+
+      text-align: center;
     }
+  }
+
+  @include ipad_only {
+    padding: 130px 27px;
+  }
+
+  @include only-iphone {
+    flex-direction: column;
+    gap: 50px;
+
+    padding: 100px 20px;
   }
 }

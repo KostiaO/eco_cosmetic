@@ -32,11 +32,29 @@ $default_img_height_about: 529;
       @extend %text;
 
       align-self: flex-start;
+      max-width: 380px;
+
+      @include only-iphone {
+        font-size: 14px;
+      }
+    }
+
+    &-btn {
+      @extend %eco-btn;
+
+      align-self: flex-start;
+      //justify-self: flex-start;
+
+      margin-top: 20px;
     }
 
     & > .learn_more {
       margin-top: 10px;
       align-self: flex-start;
+    }
+
+    @include only-iphone {
+      align-items: flex-start;
     }
   }
 
@@ -45,6 +63,17 @@ $default_img_height_about: 529;
                     $default_img_width_about,
                     $default_img_height_about
     );
+
+    @include ipad_only {
+      @include rectangle(
+                      396,
+                      318
+      );
+    }
+
+    @include only-iphone {
+      display: none;
+    }
   }
 
   &-show {
@@ -56,6 +85,10 @@ $default_img_height_about: 529;
       @extend %text;
       align-self: flex-end;
       position: relative;
+    }
+
+    @include ipad_only {
+      display: none;
     }
   }
 
@@ -70,5 +103,21 @@ $default_img_height_about: 529;
       width: 76px;
       height: 2px;
     }
+
+    @include ipad_only {
+      display: none;
+    }
+  }
+
+  @include ipad_only {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 0;
+
+    gap: 30px;
+  }
+
+  @include only-iphone {
+    padding: 0 20px;
   }
 }
