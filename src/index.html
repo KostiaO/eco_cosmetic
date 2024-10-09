@@ -5,11 +5,24 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Home</title>
 </head>
-<body>
-    <div class="burger">
-        <button class="burger-btn">
+<body x-data="
+    {
+        burgerActive: false,
+        burgerOn() {
+            this.burgerActive = true;
+        },
+        burgerOff() {
+            this.burgerActive = false;
+        }
+    }
+">
+    <div :class="{
+        'burger': true,
+        'burger--active': burgerActive
+    }">
+        <button class="burger-btn" @click="burgerOff()">
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M7.45193 6.72586L0.726074 0L0.0189674 0.707107L6.74483 7.43297L0 14.1778L0.707107 14.8849L7.45193 8.14007L14.1611 14.8492L14.8682 14.1421L8.15904 7.43297L14.8492 0.742767L14.1421 0.03566L7.45193 6.72586Z" fill="#E4DFD3"/>
             </svg>
@@ -29,6 +42,7 @@
     <header class="header">
         <button
            class="header-burger-btn"
+           @click="burgerOn();/* TODO stop scrolling */ $event.stopPropagation();"
         >
             <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="20" height="1" fill="#344F10"/>
@@ -38,7 +52,7 @@
         </button>
         <div class="header-logo">
             <img
-                src="assets/images/logo.png"
+                src="public/assets/images/logo.png"
                 alt="logo_header"
                 class="header-logo-img"
             />
@@ -51,7 +65,7 @@
                 <li
                     class="header-nav-list-item"
                 >
-                    <p>Shop</p>
+                    <a href="/shop.html"><p>Shop</p></a>
                 </li>
                 <li
                         class="header-nav-list-item"
@@ -83,7 +97,7 @@
                 </button>
             </div>
             <img
-                    src="assets/images/section_img_first.png"
+                    src="public/assets/images/section_img_first.png"
                     alt="section_img_first"
                     class="offers-img"
             />
@@ -132,12 +146,15 @@
                 </div>
             </div>
             <img
-                src="assets/images/about_brand.png"
+                src="public/assets/images/about_brand.png"
                 alt="about_brand_img"
                 class="brand_about-img"
             />
         </section>
-        <section class="shop_section">
+        <section
+                class="shop_section"
+                x-data="shopIndexState"
+        >
             <p class="back-side">shop
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -148,25 +165,37 @@
             <h2 class="shop_section-heading">Shop</h2>
             <nav class="shop_section-nav">
                 <ul class="shop_section-nav-list">
-                    <li class="shop_section-nav-list-item">
-                        <p>FACE</p>
-                    </li>
-                    <li class="shop_section-nav-list-item">
-                        <p>BODY</p>
-                    </li>
-                    <li class="shop_section-nav-list-item">
-                        <p>
-                            HAIR
-                        </p>
-                    </li>
-                    <li class="shop_section-nav-list-item shop_section-nav-list-item--is-active">
-                        <p>
-                            CANDLES
-                        </p>
-                    </li>
+                    <template x-for="shopCard in products" :key="shopCard.category">
+                        <li
+                                :class="{
+                                    'shop_section-nav-list-item': true,
+                                    'shop_section-nav-list-item--is-active': isCurrentTab(shopCard.category)
+                                }"
+                                @click="changeShopTab(shopCard.category)"
+                        >
+                            <p x-text="shopCard.category"></p>
+                        </li>
+                    </template>
                 </ul>
             </nav>
-            <div class="shop_section-cards"></div>
+            <div
+                    class="shop_section-cards"
+            >
+                <template x-for="productItem in findActiveCategoryItems()" x-bind:key="index">
+                    <div
+                         class="shop_card"
+                    >
+                        <img
+                                class="shop_card-img"
+                                :src="productItem.img"
+                                alt="shop_card1"
+                                :id="'shop_card_img' + productItem.id"
+                        />
+                        <h5 class="shop_card-title" x-text="productItem.title"></h5>
+                        <p class="shop_card-price" x-text="productItem.price"></p>
+                    </div>
+                </template>
+            </div>
             <button class="shop_section-btn">
                 All Products
             </button>
@@ -208,7 +237,7 @@
                 </button>
             </div>
             <img
-                    src="assets/images/bird_about.png"
+                    src="public/assets/images/bird_about.png"
                     alt="about_brand_img"
                     class="brand_about-img"
             />
@@ -244,7 +273,7 @@
                 <div class="brand_about-point-item"></div>
             </div>
             <img
-                    src="assets/images/tooth_powder_img.png"
+                    src="public/assets/images/tooth_powder_img.png"
                     alt="about_brand_img"
                     class="brand_about-img"
             />
@@ -252,7 +281,7 @@
         <section class="nature_friendly">
             <div class="nature_friendly-item">
                 <img
-                    src="./assets/images/smthg_svg.svg"
+                    src="public/assets/images/smthg_svg.svg"
                     alt="smthg_svg"
                     class="nature_friendly-item-img"
                 />
@@ -262,7 +291,7 @@
             </div>
             <div class="nature_friendly-item">
                 <img
-                        src="./assets/images/recycle_svg.svg"
+                        src="public/assets/images/recycle_svg.svg"
                         alt="recycle_svg"
                         class="nature_friendly-item-img"
                 />
@@ -272,7 +301,7 @@
             </div>
             <div class="nature_friendly-item">
                 <img
-                        src="./assets/images/leaves_svg.svg"
+                        src="public/assets/images/leaves_svg.svg"
                         alt="leaves_svg"
                         class="nature_friendly-item-img"
                 />
@@ -317,7 +346,7 @@
                 </form>
             </div>
             <img
-                src="./assets/images/contact_us_bird.png"
+                src="public/assets/images/contact_us_bird.png"
                 alt="contact_us_bird"
                 class="contact_us-img"
             />
@@ -353,12 +382,12 @@
 
                 <div class="footer-links-socials">
                     <img
-                        src="./assets/images/facebook.svg"
+                        src="public/assets/images/facebook.svg"
                         alt="facebook"
                         class="footer-links-socials-img"
                     />
                     <img
-                        src="./assets/images/instagram.svg"
+                        src="public/assets/images/instagram.svg"
                         alt="instagram"
                         class="footer-links-socials-img"
                     />

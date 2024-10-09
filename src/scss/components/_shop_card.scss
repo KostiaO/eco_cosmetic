@@ -13,4 +13,8 @@
 
     margin-top: 13px;
   }
+
+  &-img {
+    @include rectangle(380, 500);
+  }
 }

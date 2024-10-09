@@ -9,7 +9,6 @@ const test = require("node:test");
 
 const isProduction = process.env.NODE_ENV == 'production';
 
-
 const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
 
@@ -17,7 +16,7 @@ const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader
 const config = {
     entry: './src/index.ts',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist')
     },
     devServer: {
         open: true,
@@ -26,8 +25,13 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             template: './src/index.html',
         }),
+        new HtmlWebpackPlugin({
+            filename: 'shop.html',
+            template: './src/shop.html'
+        })
 
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
@@ -55,12 +59,23 @@ const config = {
                     ],
             },
             {
-                test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+                test: /\.(eot|ttf|woff|woff2)$/i,
                 type: 'asset',
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/images/[name].[ext]',
+                },
             },
             {
                 test: /\.html$/i,
                 loader: "html-loader",
+            },
+            {
+                test: /\.json$/,
+                loader: 'json-loader'
             }
             // Add your rules for custom modules here
             // Learn more about loaders from https://webpack.js.org/loaders/
@@ -68,6 +83,7 @@ const config = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+        modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
     optimization: {
         minimize: true,

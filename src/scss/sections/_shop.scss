@@ -87,6 +87,9 @@
 
     .shop_card {
       &-img {
+        width: 380px !important;
+        height: 500px !important;
+
         @include ipad_only {
           width: 342px;
           height: 300px;
@@ -133,5 +136,3 @@
     padding: 130px 0 100px;
   }
 }
-
-
